@@ -1,0 +1,29 @@
+services:
+
+  app:
+    env_file:
+      - .env
+    image: prxy-app:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./app:/opt/app"
+    restart: always
+#    command: tail -f /dev/null
+    command: python manage.py runserver 0.0.0.0:80
+    ports:
+      - "8080:80"
+
+  db:
+    env_file:
+      - .env
+    image: postgres:16
+    container_name: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

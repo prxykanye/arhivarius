@@ -1,0 +1,7 @@
+black[d]
+yt-dlp
+yt-dlp-ejs
+yt-dlp-apple-webkit-jsi
+Django
+psycopg[binary,pool]
+djangorestframework
