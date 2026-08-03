@@ -8,6 +8,7 @@ class Channel(models.Model):
 
     id = models.AutoField(primary_key=True)
     url = models.URLField(unique=True)
+    channel_id = models.TextField(unique=True)
     title = models.TextField()
     status = models.CharField(
         choices=ChannelStatus.choices,
